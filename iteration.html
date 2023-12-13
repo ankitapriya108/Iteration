@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iteration</title>
+</head>
+<body>
+    <div id="wrapper">
+        <input type="text" placeholder="Enter iteration count">
+        <button>Start iteration</button>
+        <p></p>
+    </div>
+    <script>
+        const input = document.querySelector("input");
+        const btn =document.querySelector("button");
+        const output =document.querySelector("p");
+        const person={
+            Name:"Ankita",
+            Age:22,
+            Gender:"female",
+            Course:"fullstack"
+        }
+        
+      const keys = Object.keys(person);
+      let i;
+       btn.addEventListener("click",startIteration)
+       function startIteration()
+       {
+        const count=input.value
+        if( count===""){
+            alert("please enter the count number!!!!")
+        }
+        else{
+            i=Number(input.value)
+        printrecurssion()
+        }
+
+        
+       }
+       function printrecurssion()
+       {
+        output.innerHTML="";
+        let j=0;
+        const inputValue=setInterval(()=>
+        {
+            if(j===keys.length ) {
+                clearInterval(inputValue)
+             if(--i>0) printrecurssion()
+                
+               
+            }
+            else{
+                output.innerHTML += person[keys[j++]] +"<br>"
+            }
+        },1000)
+       }
+       
+        
+       
+
+    
+  
+    </script>
+</body>
+</html>
